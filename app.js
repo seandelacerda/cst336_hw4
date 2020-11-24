@@ -12,19 +12,19 @@ const fakeSoccerPlayer = faker.name.findName();
 
 // routes
 app.get("/", function(req, res) {
-    res.render("index", { randomSentence });
+    res.render("index.ejs", { "sentence": randomSentence });
 });
 
 app.get("/baseball", function(req, res) {
-    res.render("baseball", { fakeBaseballPlayer });
+    res.render("baseball.ejs", { "name": fakeBaseballPlayer });
 });
 
 app.get("/soccer", function(req, res) {
-    res.render("soccer", { fakeSoccerPlayer });
+    res.render("soccer.ejs", { "name": fakeSoccerPlayer });
 });
 
 app.get("/football", function(req, res) {
-    res.render("football", { fakeFootballPlayer });
+    res.render("football.ejs", { "name": fakeFootballPlayer });
 });
 
 // starting server
