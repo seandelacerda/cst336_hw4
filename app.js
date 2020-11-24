@@ -1,23 +1,30 @@
 const express = require("express");
+const faker = require("faker");
 const app = express();
 app.engine('html', require('ejs').renderFile);
 app.use(express.static("public"));
 
+// fake data
+const randomSentence = faker.lorem.sentence();
+const fakeBaseballPlayer = faker.name.findName();
+const fakeFootballPlayer = faker.name.findName();
+const fakeSoccerPlayer = faker.name.findName();
+
 // routes
 app.get("/", function(req, res) {
-    res.render("index.html");
+    res.render("index", { randomSentence });
 });
 
 app.get("/baseball", function(req, res) {
-    res.render("baseball.html");
+    res.render("baseball", { fakeBaseballPlayer });
 });
 
 app.get("/soccer", function(req, res) {
-    res.render("soccer.html");
+    res.render("soccer", { fakeSoccerPlayer });
 });
 
 app.get("/football", function(req, res) {
-    res.render("football.html");
+    res.render("football", { fakeFootballPlayer });
 });
 
 // starting server
